@@ -56,7 +56,7 @@ void ListSV::removeFirst(){
 }
 void ListSV::removeLast(){
 	if(size == 0){
-		cout << "DANH SACH RONG!!!" << endl;
+		cout << "\tDANH SACH RONG!!!" << endl;
 		return;
 	}
 	if(size == 1){
@@ -74,7 +74,7 @@ void ListSV::removeLast(){
 void ListSV::removeSV(){
 	string a;
 	if(size == 0){
-		cout << "DANH SACH RONG!!" << endl;
+		cout << "\tDANH SACH RONG!!" << endl;
 		return;
 	}
 	cout << "\tNhap MSSV cua SV can xoa: " << endl;
@@ -86,7 +86,7 @@ void ListSV::removeSV(){
 	}
 	if(tail->data.getMSSV() == a){
 		removeLast();
-		cout << "\t Da xoa!!" << endl;
+		cout << "\t DA XOA!!" << endl;
 		return;
 	}
 	for(Node*t = head; t != NULL; t = t->next){
@@ -118,14 +118,16 @@ void ListSV::SearchID(){
 			i++;
 			cout << "\t" << "|" << setw(4) << left <<i;
 			p->data.Xuat();
+			return;
 		}
 	}
-	cout << "Khong tim thay MSSV!!" << endl;
+	cout << "Khong tim thay MSSV can tim!!" << endl;
 	return;
 }
 void ListSV::SearchName(){
 	string name;
 	int i = 0;
+	int dem = 0;
 	cout << "\tTIM KIEM SINH VIEN" << endl;	
 	if( size == 0 ){
 		cout <<"\tDANH SACH RONG!!"<<endl;
@@ -139,9 +141,13 @@ void ListSV::SearchName(){
 			i++;
 			cout << "\t" << "|" << setw(4) << left <<i;
 			p->data.Xuat();
+			dem++;
 		}
 	}
-	cout << "Neu khong tim thay ban!!" << endl;
+	if(dem == 0){
+	        cout << "Neu khong tim ten SV can tim!!" << endl;
+		return;
+	}
 	return;
 }
 void ListSV::CapNhat(){
